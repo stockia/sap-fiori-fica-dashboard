@@ -1,0 +1,23 @@
+{
+  "generationParameters": {
+    "generationDate": "Mon Jan 26 2026 14:44:47 GMT-0300 (Argentina Standard Time)",
+    "generatorPlatform": "Visual Studio Code",
+    "serviceType": "None",
+    "metadataFilename": "",
+    "serviceUrl": "N/A",
+    "appName": "ficadashboard",
+    "appTitle": "FICA debt management",
+    "appDescription": "An SAP Fiori application.",
+    "appNamespace": "com.stocki",
+    "ui5Theme": "sap_horizon",
+    "ui5Version": "1.144.0",
+    "enableEslint": false,
+    "enableTypeScript": false,
+    "showMockDataInfo": false,
+    "generatorVersion": "1.20.1",
+    "template": "Basic",
+    "generatorName": "SAP Fiori Application Generator",
+    "entityRelatedConfig": [],
+    "launchText": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+  }
+}

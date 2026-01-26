@@ -1,0 +1,72 @@
+<mvc:View controllerName="com.stocki.ficadashboard.controller.Main"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:tnt="sap.tnt"
+    xmlns:core="sap.ui.core">
+
+    <App id="app">
+        <Page id="page" title="{i18n>appTitle}">
+            <headerContent>
+                <Button icon="sap-icon://account" tooltip="User Profile"/>
+            </headerContent>
+            
+            <content>
+                <core:Fragment fragmentName="com.stocki.ficadashboard.view.fragments.KPIHeader" type="XML"/>
+
+                <Table id="idProductsTable"
+                    inset="false"
+                    items="{fica>/BusinessPartners}"
+                    class="sapUiResponsiveMargin"
+                    width="auto">
+                    
+                    <headerToolbar>
+                        <Toolbar>
+                            <Title text="{i18n>tableTitle} ({= ${fica>/BusinessPartners}.length})" level="H2"/>
+                            <ToolbarSpacer/>
+                            <SearchField width="30%" placeholder="{i18n>searchPlaceholder}"/>
+                        </Toolbar>
+                    </headerToolbar>
+
+                    <columns>
+                        <Column>
+                            <Text text="{i18n>columnBP}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>columnCity}" />
+                        </Column>
+                        <Column minScreenWidth="Tablet" demandPopin="true">
+                            <Text text="{i18n>columnAccount}" />
+                        </Column>
+                        <Column hAlign="End">
+                            <Text text="{i18n>columnAmount}" />
+                        </Column>
+                        <Column hAlign="Center">
+                            <Text text="{i18n>columnStatus}" />
+                        </Column>
+                    </columns>
+
+                    <items>
+                        <ColumnListItem type="Navigation" press="onPressBP">
+                            <cells>
+                                <ObjectIdentifier title="{fica>name}" text="ID: {fica>bpId}"/>
+                                <Text text="{fica>city}"/>
+                                <Text text="{fica>contractAccount}"/>
+                                <ObjectNumber
+                                    number="{
+                                        parts:[{path:'fica>totalAmount'},{path:'fica>currency'}],
+                                        type: 'sap.ui.model.type.Currency',
+                                        formatOptions: {showMeasure: true}
+                                    }"
+                                    state="{= ${fica>totalAmount} > 1000 ? 'Error' : 'Success' }" />
+                                <ObjectStatus
+                                    text="{fica>statusText}"
+                                    state="{fica>status}"
+                                    icon="{= ${fica>status} === 'Error' ? 'sap-icon://error' : 'sap-icon://sys-enter-2' }" />
+                            </cells>
+                        </ColumnListItem>
+                    </items>
+                </Table>
+            </content>
+        </Page>
+    </App>
+</mvc:View>
