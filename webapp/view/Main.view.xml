@@ -7,7 +7,7 @@
     <App id="app">
         <Page id="page" title="{i18n>appTitle}">
             <headerContent>
-                <Button icon="sap-icon://account" tooltip="User Profile"/>
+                <Button icon="sap-icon://account" tooltip="{i18n>userMenuTitle}" press="onOpenUserMenu"/>
             </headerContent>
             
             <content>
