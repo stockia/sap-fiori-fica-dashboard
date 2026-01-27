@@ -1,0 +1,12 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+>
+    <ActionSheet title="{i18n>userMenuTitle}" showCancelButton="true">
+        <buttons>
+            <Button text="English" icon="sap-icon://world" press=".onLanguageChange('en')" />
+            <Button text="Español" icon="sap-icon://world" press=".onLanguageChange('es')" />
+            <Button text="Polski" icon="sap-icon://world" press=".onLanguageChange('pl')" />
+        </buttons>
+    </ActionSheet>
+</core:FragmentDefinition>

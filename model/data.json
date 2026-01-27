@@ -1,0 +1,53 @@
+{
+  "Stats": {
+    "totalDebt": "45.200,00 PLN",
+    "criticalAccounts": 3,
+    "activeDunningRuns": 12
+  },
+  "BusinessPartners": [
+    {
+      "bpId": "100050",
+      "name": "Jan Kowalski",
+      "city": "Wrocław",
+      "contractAccount": "CA-99201",
+      "totalAmount": 1250.50,
+      "currency": "PLN",
+      "status": "Error",
+      "statusText": "Critical",
+      "dunningLevel": 3
+    },
+    {
+      "bpId": "100051",
+      "name": "Anna Nowak",
+      "city": "Kraków",
+      "contractAccount": "CA-99202",
+      "totalAmount": 0.00,
+      "currency": "PLN",
+      "status": "Success",
+      "statusText": "Up to date",
+      "dunningLevel": 0
+    },
+    {
+      "bpId": "100052",
+      "name": "Piotr Zieliński",
+      "city": "Warszawa",
+      "contractAccount": "CA-99203",
+      "totalAmount": 4500.00,
+      "currency": "PLN",
+      "status": "Warning",
+      "statusText": "Overdue",
+      "dunningLevel": 1
+    },
+    {
+      "bpId": "100053",
+      "name": "TechSolutions Sp. z o.o.",
+      "city": "Gdańsk",
+      "contractAccount": "CA-99204",
+      "totalAmount": 12000.00,
+      "currency": "PLN",
+      "status": "Error",
+      "statusText": "Legal Action",
+      "dunningLevel": 4
+    }
+  ]
+}
