@@ -23,7 +23,7 @@
                         <Toolbar>
                             <Title text="{i18n>tableTitle} ({= ${fica>/BusinessPartners}.length})" level="H2"/>
                             <ToolbarSpacer/>
-                            <SearchField width="30%" placeholder="{i18n>searchPlaceholder}"/>
+                            <SearchField width="30%" placeholder="{i18n>searchPlaceholder}" search="onSearch"/>
                         </Toolbar>
                     </headerToolbar>
 
