@@ -3,7 +3,7 @@
     xmlns="sap.m"
     xmlns:core="sap.ui.core">
     
-    <Page id="idDetailPage" title="{i18n>detailPageTitle}" showNavButton="false">
+    <Page id="idDetailPage" title="{i18n>detailPageTitle}" showNavButton="true" navButtonPress="onCloseDetail">
         <content>
             <ObjectHeader id="idDetailHeader"
                 title="{fica>name}"
