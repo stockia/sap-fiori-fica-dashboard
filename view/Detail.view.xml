@@ -1,0 +1,68 @@
+<mvc:View controllerName="com.stocki.ficadashboard.controller.Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <Page id="idDetailPage" title="{i18n>detailPageTitle}" showNavButton="false">
+        <content>
+            <ObjectHeader id="idDetailHeader"
+                title="{fica>name}"
+                number="{
+                    parts:[{path:'fica>totalAmount'},{path:'fica>currency'}],
+                    type: 'sap.ui.model.type.Currency',
+                    formatOptions: {showMeasure: true}
+                }"
+                numberState="{= ${fica>totalAmount} > 1000 ? 'Error' : 'Success' }">
+                <attributes>
+                    <ObjectAttribute id="attrBPId" title="{i18n>detailPageBP}" text="{fica>bpId}" />
+                    <ObjectAttribute id="attrCity" title="{i18n>detailPageCity}" text="{fica>city}" />
+                    <ObjectAttribute id="attrAccount" title="{i18n>detailPageAccount}" text="{fica>contractAccount}" />
+                </attributes>
+                <statuses>
+                    <ObjectStatus id="statusDetailDunning" 
+                        text="{i18n>detailDunningLevel}: {fica>dunningLevel}" 
+                        state="{= ${fica>dunningLevel} > 2 ? 'Error' : 'Success' }" />
+                </statuses>
+            </ObjectHeader>
+
+            <Table id="idFicaDocsTable"
+                inset="false"
+                items="{fica>FicaDocuments}"
+                class="sapUiResponsiveMargin"
+                width="auto">
+                
+                <headerToolbar>
+                    <OverflowToolbar id="idFicaDocsToolbar">
+                        <Title id="idFicaDocsTitle" text="{i18n>detailPageFicaDocsTitle}" level="H2"/>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column id="colOpbel"><Text id="txtOpbel" text="{i18n>detailPageFicaDocsDocId}" /></Column>
+                    <Column id="colFaedn"><Text id="txtFaedn" text="{i18n>detailPageFicaDocsDocDueDate}" /></Column>
+                    <Column id="colPayMethod" hAlign="Center"><Text id="txtPayMethod" text="{i18n>detailPageFicaDocsDocPayMethod}" /></Column>
+                    <Column id="colBetrw" hAlign="End"><Text id="txtBetrw" text="{i18n>detailPageFicaDocsDocTotalAmount}" /></Column>
+                </columns>
+
+                <items>
+                    <ColumnListItem id="idFicaDocRow">
+                        <cells>
+                            <ObjectIdentifier id="idDocId" title="{fica>opbel}"/>
+                            <Text id="idDocDate" text="{fica>faedn}"/>
+                            <ObjectStatus id="idDocPayMethod" 
+                                text="{= ${fica>paymentMethod} === 'U' ? ${i18n>detailPageFicaDocsItemPayMethodManual} : ${i18n>detailPageFicaDocsItemPayMethodDirectDebit} }"
+                                icon="{= ${fica>paymentMethod} === 'U' ? 'sap-icon://alert' : 'sap-icon://accept' }"
+                                state="{= ${fica>paymentMethod} === 'U' ? 'Warning' : 'Success' }" />
+                            <ObjectNumber id="idDocAmount"
+                                number="{
+                                    parts:[{path:'fica>betrw'},{path:'fica>../currency'}],
+                                    type: 'sap.ui.model.type.Currency',
+                                    formatOptions: {showMeasure: true}
+                                }" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </content>
+    </Page>
+</mvc:View>

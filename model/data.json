@@ -1,6 +1,6 @@
 {
   "Stats": {
-    "totalDebt": "45.200,00 PLN",
+    "totalDebt": "17.750,50 PLN",
     "criticalAccounts": 3,
     "activeDunningRuns": 12
   },
@@ -14,18 +14,25 @@
       "currency": "PLN",
       "status": "Error",
       "statusText": "Critical",
-      "dunningLevel": 3
+      "dunningLevel": 3,
+      "FicaDocuments": [
+        { "opbel": "OP-100101", "betrw": 1000.00, "faedn": "2026-05-01", "paymentMethod": "U", "dunningLevel": 3 },
+        { "opbel": "OP-100102", "betrw": 250.50, "faedn": "2026-05-15", "paymentMethod": "U", "dunningLevel": 1 }
+      ]
     },
     {
       "bpId": "100051",
       "name": "Anna Nowak",
       "city": "Kraków",
       "contractAccount": "CA-99202",
-      "totalAmount": 0.00,
+      "totalAmount": 850.00,
       "currency": "PLN",
       "status": "Success",
-      "statusText": "Up to date",
-      "dunningLevel": 0
+      "statusText": "On Track",
+      "dunningLevel": 1,
+      "FicaDocuments":[
+        { "opbel": "OP-100201", "betrw": 850.00, "faedn": "2026-09-10", "paymentMethod": "C", "dunningLevel": 1 }
+      ]
     },
     {
       "bpId": "100052",
@@ -36,7 +43,10 @@
       "currency": "PLN",
       "status": "Warning",
       "statusText": "Overdue",
-      "dunningLevel": 1
+      "dunningLevel": 2,
+      "FicaDocuments": [
+        { "opbel": "OP-100301", "betrw": 4500.00, "faedn": "2026-05-20", "paymentMethod": "U", "dunningLevel": 1 }
+      ]
     },
     {
       "bpId": "100053",
@@ -47,7 +57,10 @@
       "currency": "PLN",
       "status": "Error",
       "statusText": "Legal Action",
-      "dunningLevel": 4
+      "dunningLevel": 4,
+      "FicaDocuments": [
+        { "opbel": "OP-100401", "betrw": 12000.00, "faedn": "2026-04-30", "paymentMethod": "U", "dunningLevel": 4 }
+      ]
     }
   ]
 }

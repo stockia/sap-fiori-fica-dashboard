@@ -1,18 +1,16 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
-    "sap/m/MessageToast",
     "sap/ui/model/Filter",
     "sap/ui/model/FilterOperator",
     "sap/ui/core/Fragment"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
-     * @param {typeof sap.m.MessageToast} MessageToast
      * @param {typeof sap.ui.model.Filter} Filter
      * @param {typeof sap.ui.model.FilterOperator} FilterOperator
      * @param {typeof sap.ui.core.Fragment} Fragment
      */
-    function (Controller, MessageToast, Filter, FilterOperator, Fragment) {
+    function (Controller, Filter, FilterOperator, Fragment) {
         "use strict";
 
         return Controller.extend("com.stocki.ficadashboard.controller.Main", {
@@ -52,17 +50,19 @@ sap.ui.define([
                 
                 // get the binding context of the item
                 var oBindingContext = oItem.getBindingContext("fica");
-                
-                // get the actual data object (the customer object)
-                var oModelData = oBindingContext.getObject();
-                var oResourceBundle = this.getView().getModel("i18n").getResourceBundle();
-                var sMessage = oResourceBundle.getText("msgSelected", [
-                    oModelData.name,
-                    oModelData.totalAmount,
-                    oModelData.currency
-                ])
-                
-                MessageToast.show(sMessage);
+
+                // get the 'path' of the selected row
+                // get rid of the initial '/'
+                var sPath = oBindingContext.getPath();
+                var sIndex = sPath.split("/").pop();
+
+                // call UI5 native Router
+                var oRouter = this.getOwnerComponent().getRouter();
+
+                // navigate to the detail route passing the dynamic path
+                oRouter.navTo("RouteDetail", {
+                    bpIndex: sIndex
+                });
             },
 
             /**
