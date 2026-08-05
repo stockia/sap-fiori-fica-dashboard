@@ -4,10 +4,10 @@
     xmlns:tnt="sap.tnt"
     xmlns:core="sap.ui.core">
 
-    <App id="app">
+    <!-- <App id="app"> -->
         <Page id="page" title="{i18n>appTitle}">
             <headerContent>
-                <Button icon="sap-icon://account" tooltip="{i18n>userMenuTitle}" press="onOpenUserMenu"/>
+                <Button id="userMenuButton" icon="sap-icon://account" tooltip="{i18n>userMenuTitle}" press="onOpenUserMenu"/>
             </headerContent>
             
             <content>
@@ -20,45 +20,47 @@
                     width="auto">
                     
                     <headerToolbar>
-                        <Toolbar>
-                            <Title text="{i18n>tableTitle} ({= ${fica>/BusinessPartners}.length})" level="H2"/>
-                            <ToolbarSpacer/>
-                            <SearchField width="30%" placeholder="{i18n>searchPlaceholder}" search="onSearch"/>
+                        <Toolbar id="tableToolbar">
+                            <Title id="tableTitle" text="{i18n>tableTitle} ({= ${fica>/BusinessPartners}.length})" level="H2"/>
+                            <ToolbarSpacer id="tableSpacer"/>
+                            <SearchField id="searchField" width="30%" placeholder="{i18n>searchPlaceholder}" search="onSearch"/>
                         </Toolbar>
                     </headerToolbar>
 
                     <columns>
-                        <Column>
-                            <Text text="{i18n>columnBP}" />
+                        <Column id="columnBP" >
+                            <Text id="textBP" text="{i18n>columnBP}" />
                         </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="{i18n>columnCity}" />
+                        <Column id="columnCity" minScreenWidth="Tablet" demandPopin="true">
+                            <Text id="textCity" text="{i18n>columnCity}" />
                         </Column>
-                        <Column minScreenWidth="Tablet" demandPopin="true">
-                            <Text text="{i18n>columnAccount}" />
+                        <Column id="columnAccount" minScreenWidth="Tablet" demandPopin="true">
+                            <Text id="textAccount" text="{i18n>columnAccount}" />
                         </Column>
-                        <Column hAlign="End">
-                            <Text text="{i18n>columnAmount}" />
+                        <Column id="columnAmount" hAlign="End">
+                            <Text id="textAmount" text="{i18n>columnAmount}" />
                         </Column>
-                        <Column hAlign="Center">
-                            <Text text="{i18n>columnStatus}" />
+                        <Column id="columnStatus" hAlign="Center">
+                            <Text id="textStatus" text="{i18n>columnStatus}" />
                         </Column>
                     </columns>
 
                     <items>
-                        <ColumnListItem type="Navigation" press="onPressBP">
+                        <ColumnListItem id="columnListItem" type="Navigation" press="onPressBP">
                             <cells>
-                                <ObjectIdentifier title="{fica>name}" text="ID: {fica>bpId}"/>
-                                <Text text="{fica>city}"/>
-                                <Text text="{fica>contractAccount}"/>
+                                <ObjectIdentifier id="objectIdentifier" title="{fica>name}" text="ID: {fica>bpId}"/>
+                                <Text id="textCityList" text="{fica>city}"/>
+                                <Text id="textAccountList" text="{fica>contractAccount}"/>
                                 <ObjectNumber
+                                    id="objectNumber"
                                     number="{
                                         parts:[{path:'fica>totalAmount'},{path:'fica>currency'}],
                                         type: 'sap.ui.model.type.Currency',
                                         formatOptions: {showMeasure: true}
                                     }"
-                                    state="{= ${fica>totalAmount} > 1000 ? 'Error' : 'Success' }" />
+                                    state="{= ${fica>dunningLevel} === 1 ? 'Success' : ${fica>dunningLevel} === 2 ? 'Warning' :'Error' }" />
                                 <ObjectStatus
+                                    id="objectStatus"
                                     text="{fica>statusText}"
                                     state="{fica>status}"
                                     icon="{= ${fica>status} === 'Error' ? 'sap-icon://error' : 'sap-icon://sys-enter-2' }" />
@@ -68,5 +70,5 @@
                 </Table>
             </content>
         </Page>
-    </App>
+    <!-- </App> -->
 </mvc:View>

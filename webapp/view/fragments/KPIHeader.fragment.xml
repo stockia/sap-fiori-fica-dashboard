@@ -4,7 +4,7 @@
 >
     <HeaderContainer scrollStep="200" showDividers="false" class="sapUiSmallMargin">
         <TileContent footer="{i18n>kpiTotalDebt}">
-            <NumericContent value="45.2k" icon="sap-icon://money-bills" valueColor="Error" />
+            <NumericContent value="{fica>/Stats/totalDebt}" icon="sap-icon://money-bills" valueColor="Error" />
         </TileContent>
         <TileContent footer="{i18n>kpiCritical}">
             <NumericContent value="{fica>/Stats/criticalAccounts}" icon="sap-icon://alert" valueColor="Critical" />

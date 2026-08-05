@@ -1,7 +1,17 @@
-<mvc:View controllerName="com.stocki.ficadashboard.controller.App"
+<!-- <mvc:View controllerName="com.stocki.ficadashboard.controller.App"
     displayBlock="true"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
     <App id="app">
+    </App>
+</mvc:View> -->
+<mvc:View 
+    displayBlock="true" 
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+>
+    <App id="idAppContainer">
+        <f:FlexibleColumnLayout id="app" layout="OneColumn" />
     </App>
 </mvc:View>

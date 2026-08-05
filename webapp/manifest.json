@@ -38,6 +38,7 @@
       "minUI5Version": "1.144.0",
       "libs": {
         "sap.m": {},
+        "sap.f": {},
         "sap.ui.core": {}
       }
     },
@@ -68,29 +69,36 @@
     },
     "routing": {
       "config": {
-        "routerClass": "sap.m.routing.Router",
-        "controlAggregation": "pages",
-        "controlId": "app",
-        "transition": "slide",
-        "type": "View",
+        "routerClass": "sap.f.routing.Router",
         "viewType": "XML",
-        "path": "com.stocki.ficadashboard.view",
-        "async": true,
-        "viewPath": "com.stocki.ficadashboard.view"
+        "viewPath": "com.stocki.ficadashboard.view",
+        "controlId": "app",
+        "async": true
       },
       "routes": [
         {
           "name": "RouteMain",
-          "pattern": ":?query:",
-          "target": [
-            "TargetMain"
-          ]
+          "pattern": "",
+          "layout": "OneColumn",
+          "target": ["TargetMain"]
+        },
+        {
+          "name": "RouteDetail",
+          "pattern": "Customer/{bpIndex}",
+          "layout": "TwoColumnsBeginExpanded",
+          "target": ["TargetMain", "TargetDetail"]
         }
       ],
       "targets": {
         "TargetMain": {
-          "id": "Main",
-          "name": "Main"
+          "viewName": "Main",
+          "viewId": "Main",
+          "controlAggregation": "beginColumnPages"
+        },
+        "TargetDetail": {
+          "viewName": "Detail",
+          "viewId": "Detail",
+          "controlAggregation": "midColumnPages"
         }
       }
     },
