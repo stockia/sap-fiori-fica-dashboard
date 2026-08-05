@@ -16,6 +16,11 @@ sap.ui.define([
         /**
          * Se ejecuta automáticamente cada vez que el usuario selecciona un Business Partner
          */
+        onCloseDetail: function () {
+            var oRouter = this.getOwnerComponent().getRouter();
+            oRouter.navTo("RouteMain");
+        },
+
         _onDetailMatched: function (oEvent) {
             // Extraemos el parámetro de la URL que mandó el controlador principal
             var sBpIndex = oEvent.getParameter("arguments").bpIndex;
